@@ -8,7 +8,6 @@ function Doughnut(props: Props) {
     const maxScore = 100;
 
     const data = {
-        labels: ['Score', ''],
         datasets: [
             {
                 data: [value, maxScore - value],
@@ -28,8 +27,8 @@ function Doughnut(props: Props) {
         cutout: '80%',
     };
 
-    return (<div className={'border border-dark p-1 m-1'} style={{width: '10em'}}>
-        <b className={'d-block text-center'}>{title}: {value} / {maxScore}</b>
+    return (<div className={'border border-dark p-1 m-1'} style={{width: 'auto'}}>
+        <b className={'d-block text-center'}>{title}: {value}/{maxScore}</b>
         <D data={data} options={options} />
     </div>);
 }
