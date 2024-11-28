@@ -3,6 +3,8 @@ import {Result, Summary} from './common/types';
 import {Navbar, ResultCard, ResultPage} from './components';
 import {Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend} from 'chart.js';
 import './components/style.css';
+import Api from './common/api';
+import U from './common/U';
 
 function App() {
   const [summary, setSummary] = useState<Summary|null>(null);
@@ -12,11 +14,13 @@ function App() {
   useEffect(() => {
     ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
     (async function() {
-      const response = await fetch('./summary.json');
-      if(response.ok) {
-        const json = await response.json();
-        setSummary(json);
+      let response = await Api.get('backend/summary');
+      while(response.code !== 200) {
+        await U.sleep(5);
+        response = await Api.get('backend/summary');
       }
+      const json = await response.data;
+      setSummary(json as Summary);
     })();
   }, []);
 

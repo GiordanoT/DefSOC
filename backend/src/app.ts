@@ -18,3 +18,4 @@ console.log(`Server Listening on port ${PORT}.`);
 /* Routes */
 const root = 'backend';
 app.use(`/${root}/summary`, SummaryRouter);
+console.log(process.env['TOKEN'])

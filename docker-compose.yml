@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    restart: always
+    links:
+      - backend
+    ports:
+      - 5001:80
+
+  backend:
+    build: ./backend
+    container_name: backend
+    restart: always
+    ports:
+      - 5002:5002

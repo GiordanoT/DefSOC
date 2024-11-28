@@ -1,8 +1,7 @@
 import * as esbuild from 'esbuild';
 import dotenv from 'dotenv';
 
-// Change the environment (production|docker) depends on your need.
-dotenv.config({path: '.env.docker'});
+dotenv.config({path: '.env'});
 esbuild.build({
     entryPoints: ['./src/app.ts'],
     bundle: true,
@@ -10,6 +9,6 @@ esbuild.build({
     outfile: './build/main.bundle.js',
     loader: {'.ts': 'ts'},
     define: {
-        'process.env.MONGODB_URL': `'${process.env['MONGODB_URL']}'`
+        'process.env.TOKEN': `'${process.env['TOKEN']}'`
     }
 }).then(() => console.log('⚡ Bundle Build Completed ⚡'))
