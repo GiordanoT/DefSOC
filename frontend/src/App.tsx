@@ -14,6 +14,7 @@ function App() {
   useEffect(() => {
     ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
     (async function() {
+      /*
       let response = await Api.get('backend/summary');
       while(response.code !== 200) {
         await U.sleep(5);
@@ -21,6 +22,9 @@ function App() {
       }
       const json = await response.data;
       setSummary(json as Summary);
+      */
+      const response = await fetch('./summary.json');
+      if(response.ok) setSummary(await response.json());
     })();
   }, []);
 

@@ -3,7 +3,7 @@ version: '3.8'
 services:
 
   frontend:
-    image: giordanotin/defsoc-frontend
+    build: ./frontend
     container_name: frontend
     restart: always
     links:
@@ -12,7 +12,7 @@ services:
       - 5001:80
 
   backend:
-    image: giordanotin/defsoc-backend
+    build: ./backend
     container_name: backend
     restart: always
     ports:
