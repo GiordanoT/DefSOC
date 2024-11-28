@@ -83,5 +83,5 @@ type ContentDeliveryNetwork = {
     assets: string[];
 };
 
-export type Section = 'summary'|'scores'|'ports'|'others';
+export type Section = 'summary'|'scores'|'ports'|'dataleak'|'vulnerabilities'|'waf'|'others';
 

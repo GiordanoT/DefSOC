@@ -1,6 +1,4 @@
 import {Doughnut as D} from 'react-chartjs-2';
-import {Chart as ChartJS, ArcElement, Tooltip, Title} from 'chart.js';
-ChartJS.register(ArcElement, Tooltip, Title);
 
 type Props = {title: string, value: number}
 function Doughnut(props: Props) {
@@ -27,7 +25,7 @@ function Doughnut(props: Props) {
         cutout: '80%',
     };
 
-    return (<div className={'border border-dark p-1 m-1'} style={{width: 'auto'}}>
+    return (<div className={'p-1 m-1'} style={{width: 'auto'}}>
         <b className={'d-block text-center'}>{title}: {value}/{maxScore}</b>
         <D data={data} options={options} />
     </div>);
