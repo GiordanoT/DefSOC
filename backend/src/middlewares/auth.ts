@@ -5,7 +5,7 @@ class AuthMiddleware {
         try {
             const token = String(req.headers['auth-token']);
             if(!token) return res.status(401).send('Token not provide.');
-            if(token !== '123') return res.status(401).send('Invalid Token.');
+            if(token !== process.env['TOKEN']) return res.status(401).send('Invalid Token.');
             return next();
         } catch(error) {
             return res.status(400).send(error);

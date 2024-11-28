@@ -4,9 +4,9 @@
   "description": "Backend",
   "main": "src/app.ts",
   "scripts": {
-    "dev": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env.development",
-    "docker": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env.docker",
-    "prod": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env.production",
+    "dev": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env",
+    "docker": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env",
+    "prod": "nodemon -r dotenv/config src/app.ts dotenv_config_path=.env",
     "build": "ts-node esbuild.config.ts",
     "serve": "node dist/main.bundle.js",
     "lint": "eslint . --ext .ts"
