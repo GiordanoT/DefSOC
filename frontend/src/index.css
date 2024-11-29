@@ -5,3 +5,19 @@ html, body {
 .my-rounded {
     border-radius: 0.6em;
 }
+
+::-webkit-scrollbar {
+    width: 0.2rem;
+    height: 0.3rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #888;
+    &:active, &:hover{
+        background: #555;
+    }
+}
